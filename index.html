@@ -54,13 +54,14 @@
 			        <option value="EBay">EBay</option>
 			        <option value="Amazon">Amazon</option>
 			    </select>
+			    
 			    <div data-role="fieldcontain">
 			        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
 			            <legend>Free Food</legend>
 			            <input type="radio" name="radio-orientation" id="free-food-yes" value="No" checked="checked">
-			            <label for="isVertical">Yes</label>
+			            <label for="free-food-yes">Yes</label>
 			            <input type="radio" name="radio-orientation" id="free-food-no" value="false">
-			            <label for="isHorizontal">No</label>
+			            <label for="free-food-no">No</label>
 			        </fieldset>
     			</div>
     			<a id="provide-button" data-role="button">Provide</a>
@@ -108,7 +109,7 @@
 			</div>
 			<div id="tourinfo-map"></div>
 			<a id="checkinBtn" href="#checkin" data-role="button">Check In</a>
-			
+			<input type='hidden' id='tour-info-id' value='0'>
 		</div>
 		<!-- /panel -->
 	</div>

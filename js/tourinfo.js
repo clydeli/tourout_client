@@ -9,6 +9,8 @@ var displayTourInfo = function(tour) {
 	$('#checkinBtn').click(function(){
 		tourout.checkin.sendVisitorInfo();
 	});
+	
+	$('#tour-info-id').val(tour['key']['id']);
 }
 
 var initMap = function(latitude, longitude) {
