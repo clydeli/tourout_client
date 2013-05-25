@@ -33,6 +33,7 @@ tourout.checkin = (function() {
 						success : function(){ 
 							console.log("good sent");
 							killPopup();
+							createPopup("You've checked in <br> with David Liu <br> (650) 123-4567");
 							nfcCallbacks.onattach = function(){ console.log("attached"); };
 							$("#right-panel").panel("close");
 						},
