@@ -10,14 +10,14 @@ var displayTourInfo = function(tour) {
 		tourout.checkin.setTourInfo(
 			{
 				visitorName : "visitor",
-				hostName : "host",
-				tourId : ""
+				hostName : tour['propertyMap']['provider'],
+				tourId : tour['key']['id']
 			}
 		);
 		tourout.checkin.sendVisitorInfo();
 	});
 	
-	$('#tour-info-id').val(tour['key']['id']);
+	//$('#tour-info-id').val(tour['key']['id']);
 }
 
 var initMap = function(latitude, longitude) {

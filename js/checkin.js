@@ -27,7 +27,7 @@ tourout.checkin = (function() {
 			nfcCallbacks.onattach = function(){
 				console.log("attached");
 				tourout.nfc.sendTextNDEF(
-					[JSON.stringify(tourInfo)],
+					[tourInfo.visitorName, tourInfo.hostName, tourInfo.tourId],
 					{
 						success : function(){ 
 							console.log("good sent");
@@ -48,10 +48,10 @@ tourout.checkin = (function() {
 			$.ajax({
 				url: "http://cmu-tourout.appspot.com/finishTour?key="+tourId,
 				type: 'GET',
-				dataType: 'json',
-				success: function (jsondata) {
+				success: function () {
+					console.log("finish...");
 					killPopup();
-					console.log(jsondata);
+					//console.log(jsondata);
 				}
 			});
 		},
@@ -64,8 +64,9 @@ tourout.checkin = (function() {
 				createPopup("Validating <br> Visitor...");
 				console.log("received");
 				console.log(message.records[0].text);
-				var msg = JSON.parse(message.records[0].text);
-				checkInTour(msg.tourId);
+				//var msg = JSON.parse(message.records[2].text);
+				console.log(message.records[2].text);
+				checkInTour(message.records[2].text);
 			}	
 		};
 		
