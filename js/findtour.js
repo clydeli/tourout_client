@@ -5,7 +5,8 @@ tourout.findtour = (function() {
 		navigator.geolocation.getCurrentPosition(
 			function(position) {
 				var mapOptions = {
-					center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+					// center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+					center: new google.maps.LatLng(37.391661, -122.081703),
 			        zoom: 8,
 			        mapTypeId: google.maps.MapTypeId.ROADMAP
 			    };
