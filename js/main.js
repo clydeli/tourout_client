@@ -27,16 +27,20 @@ $(document).on("pageinit", "#demo-page", function() {
 		$(".innerPages").hide();
 		$("#" + $(this).data('page')).show();
 		$("#left-panel").panel("close");
-		updateTitle($(this).data('page'));
 		switch($(this).data('page')){
 			case "nfcCheckIn":
 				tourout.checkin.init();
 				break;
 			case "tourList":
 				tourout.tourlist.init();
+				updateTitle("My Tour");
 				break;
 			case "findTour":
 				tourout.findtour.init();
+				updateTitle("Find Tour");
+				break;
+			case "provideTour":
+				updateTitle("Provide Tour");
 				break;
 		}
 	});
