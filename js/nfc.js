@@ -1,7 +1,7 @@
 var tourout = tourout || {};
 
 /* Module for NFC originally by Zaneta Szymanska at Samsung */
-tourout.nfc = function() {
+tourout.nfc = function(callback) {
 	var nfcAdapter;
 	var nfcTarget;
 	var callbacks = {
@@ -11,6 +11,7 @@ tourout.nfc = function() {
 		onreceive : function(message){ 
 			console.log("received");
 			console.log(message.records[0].text);
+			var msg = JSON.parse(message.records[0].text);
 		}	
 	}; //contains callback functions: onattach, ondetach and onreceive 
 	
@@ -48,7 +49,7 @@ tourout.nfc = function() {
 			try {
 				console.log("Try getDefaultAdapter");
 				nfcAdapter = tizen.nfc.getDefaultAdapter();
-				//callbacks = callback; 
+				callbacks = callback; 
 				nfcAdapter.setPowered(true, onPowerOn, onPowerOnFails);
 				console.log(this.isTargetDetect());
 			} catch (e) {
