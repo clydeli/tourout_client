@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://yourdomain/GPSTest" version="1.0.0" viewmodes="maximized">
+    <tizen:application id="x2uwJjYovI.GPSTest" package="x2uwJjYovI" required_version="2.1"/>
+    <content src="index.html"/>
+    <icon src="icon.png"/>
+    <name>GPSTest</name>
+    <access origin="*" subdomains="true"/>
+    <tizen:privilege name="http://tizen.org/privilege/application.launch"/>
+</widget>
