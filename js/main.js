@@ -50,5 +50,6 @@ $(document).on("pageinit", "#demo-page", function() {
 	}
 	
 	bindTourDetail();
+	
 });
 
