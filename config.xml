@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://yourdomain/tourout" version="1.0.0" viewmodes="maximized">
+    <access origin="*" subdomains="true"/>
     <tizen:application id="NmiDaIDRDv.tourout" package="NmiDaIDRDv" required_version="2.1"/>
     <content src="index.html"/>
     <icon src="icon.png"/>
     <name>tourout</name>
+    <tizen:privilege name="http://tizen.org/privilege/nfc.p2p"/>
+    <tizen:privilege name="http://tizen.org/privilege/nfc.common"/>
+    <tizen:privilege name="http://tizen.org/privilege/nfc.admin"/>
 </widget>
