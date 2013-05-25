@@ -33,6 +33,7 @@ tourout.checkin = (function() {
 							console.log("good sent");
 							killPopup();
 							nfcCallbacks.onattach = function(){ console.log("attached"); };
+							$("#right-panel").panel("close");
 						},
 						error : function(){ 
 							console.log("bad sent");
@@ -51,6 +52,8 @@ tourout.checkin = (function() {
 				success: function () {
 					console.log("finish...");
 					killPopup();
+					createPopup("Success!");
+					setTimeout(function(){killPopup()}, 3000);
 					//console.log(jsondata);
 				}
 			});
@@ -63,9 +66,9 @@ tourout.checkin = (function() {
 			onreceive : function(message){ 
 				createPopup("Validating <br> Visitor...");
 				console.log("received");
-				console.log(message.records[0].text);
+				//console.log(message.records[0].text);
 				//var msg = JSON.parse(message.records[2].text);
-				console.log(message.records[2].text);
+				//console.log(message.records[2].text);
 				checkInTour(message.records[2].text);
 			}	
 		};
