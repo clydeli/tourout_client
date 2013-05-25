@@ -1,6 +1,9 @@
 var displayTourInfo = function(tour) {
 	
-	$('#tour-info-provider').text(tour['propertyMap']['provider'])
+	$('#tour-info-provider').text(tour['propertyMap']['provider']);
+	$('#tour-info-meeting-time').text(tour['propertyMap']['meetingTime']);
+	tour['propertyMap']['haveFreeLunch'] == true ? $('#tour-info-free-food').text('Yes') : $('#tour-info-free-food').text('No'); 
+	$('#tour-info-company').text(tour['propertyMap']['companyName']);
 	initMap(tour['propertyMap']['coordinates'].split(',')[0], tour['propertyMap']['coordinates'].split(',')[1]);
 }
 

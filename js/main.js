@@ -27,6 +27,9 @@ $(document).on("pageinit", "#demo-page", function() {
 			case "tourList":
 				tourout.tourlist.init();
 				break;
+			case "findTour":
+				tourout.findtour.init();
+				break;
 		}
 	});
 	
@@ -45,23 +48,6 @@ $(document).on("pageinit", "#demo-page", function() {
 			
 		});
 	}
-	
-	// Init map
-	// Initialize map
-    navigator.geolocation.getCurrentPosition(
-		function(position) {
-			var mapOptions = {
-				center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
-		        zoom: 8,
-		        mapTypeId: google.maps.MapTypeId.ROADMAP
-		    };
-		    var map = new google.maps.Map(document.getElementById('findTour'), mapOptions);
-			console.log('Latitude: ' + position.coords.latitude + 'Longitude: ' + position.coords.longitude);
-		},
-		function(error) {
-			console.log('Failed to get current position');
-		}
-	);
 	
 	bindTourDetail();
 });
