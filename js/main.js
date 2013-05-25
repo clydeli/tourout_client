@@ -3,6 +3,7 @@ function updateTitle(title) {
 }
 
 $(document).on("pageinit", "#demo-page", function() {
+	tourout.tourlist.init();
 
 	$(".innerPages").hide();
 	$("#tourList").show();
