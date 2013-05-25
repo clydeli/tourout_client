@@ -16,6 +16,8 @@ var displayTourInfo = function(tour) {
 		);
 		tourout.checkin.sendVisitorInfo();
 	});
+	
+	$('#tour-info-id').val(tour['key']['id']);
 }
 
 var initMap = function(latitude, longitude) {
