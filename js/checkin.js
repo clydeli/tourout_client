@@ -9,6 +9,7 @@ tourout.checkin = (function() {
 		},
 		
 		createPopup = function(text){
+			killPopup();
 			var closebtn = '<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-btn-right">Close</a>';
 	        var header = '<div data-role="header"><h2> '+text+' </h2></div>';
 			var popup = '<div data-role="popup" style="width: 18em;" id="popup-received" data-theme="none" data-overlay-theme="a" data-corners="false" data-tolerance="15"> '+closebtn+header+'</div>';
