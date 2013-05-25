@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>GPSTest</name>
+	<name>tourout</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -38,10 +38,6 @@
 		<buildCommand>
 			<name>org.tizen.web.project.builder.WebBuilder</name>
 			<arguments>
-				<dictionary>
-					<key>usedLibraryType</key>
-					<value>WebUIFramework</value>
-				</dictionary>
 			</arguments>
 		</buildCommand>
 	</buildSpec>
