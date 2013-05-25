@@ -7,10 +7,17 @@ var displayTourInfo = function(tour) {
 	initMap(tour['propertyMap']['coordinates'].split(',')[0], tour['propertyMap']['coordinates'].split(',')[1]);
 
 	$('#checkinBtn').click(function(){
+		tourout.checkin.setTourInfo(
+			{
+				visitorName : "visitor",
+				hostName : tour['propertyMap']['provider'],
+				tourId : tour['key']['id']
+			}
+		);
 		tourout.checkin.sendVisitorInfo();
 	});
 	
-	$('#tour-info-id').val(tour['key']['id']);
+	//$('#tour-info-id').val(tour['key']['id']);
 }
 
 var initMap = function(latitude, longitude) {

@@ -6,10 +6,11 @@ tourout.findtour = (function() {
 	var register = function(locationId) {
 		var tourId = $('#select' + locationId + " option:selected").val();
 		$.ajax({
-			url: "http://cmu-tourout.appspot.com/registerTour?key=" + tourId + "&visitor=ClydeDrexler"
+			url: "http://cmu-tourout.appspot.com/registerTour?key=" + tourId + "&visitor=Sean"
 		});
 		
-		$("#headerText").html("Registered");
+		// $("#headerText").html("Registered");
+		$( "#popup-received").remove();
 		createPopup("Registered");
 		
 		infoWindows.forEach(function(infoWindow) {
@@ -49,6 +50,8 @@ tourout.findtour = (function() {
 	};
 	
 	var init = function() {
+		// $("#headerText").html("Loading...");
+		$( "#popup-received").remove();
 		createPopup("Loading...");
 		
 		navigator.geolocation.getCurrentPosition(

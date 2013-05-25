@@ -27,12 +27,13 @@ tourout.checkin = (function() {
 			nfcCallbacks.onattach = function(){
 				console.log("attached");
 				tourout.nfc.sendTextNDEF(
-					[JSON.stringify(tourInfo)],
+					[tourInfo.visitorName, tourInfo.hostName, tourInfo.tourId],
 					{
 						success : function(){ 
 							console.log("good sent");
 							killPopup();
 							nfcCallbacks.onattach = function(){ console.log("attached"); };
+							$("#right-panel").panel("close");
 						},
 						error : function(){ 
 							console.log("bad sent");
@@ -44,14 +45,16 @@ tourout.checkin = (function() {
 			createPopup("Please check in <br> using NFC...");
 		},
 	
-		checkInTour = function(){
+		checkInTour = function(tourId){
 			$.ajax({
-				url: "http://cmu-tourout.appspot.com/getTours",
+				url: "http://cmu-tourout.appspot.com/finishTour?key="+tourId,
 				type: 'GET',
-				dataType: 'json',
-				success: function (jsondata) {
-					console.log(jsondata);
-					// do something
+				success: function () {
+					console.log("finish...");
+					killPopup();
+					createPopup("Success!");
+					setTimeout(function(){killPopup()}, 3000);
+					//console.log(jsondata);
 				}
 			});
 		},
@@ -63,9 +66,10 @@ tourout.checkin = (function() {
 			onreceive : function(message){ 
 				createPopup("Validating <br> Visitor...");
 				console.log("received");
-				console.log(message.records[0].text);
-				var msg = JSON.parse(message.records[0].text);
-				killPopup();
+				//console.log(message.records[0].text);
+				//var msg = JSON.parse(message.records[2].text);
+				//console.log(message.records[2].text);
+				checkInTour(message.records[2].text);
 			}	
 		};
 		
@@ -74,6 +78,9 @@ tourout.checkin = (function() {
 		init : function(){
 			tourout.nfc.init(nfcCallbacks);
 			//sendVisitorInfo();
+		},
+		setTourInfo : function(tInfo){
+			tourInfo = tInfo;
 		},
 		sendVisitorInfo : sendVisitorInfo
 	};

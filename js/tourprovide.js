@@ -23,6 +23,7 @@ $("#provide-button").click(function() {
 		haveFreeLunch : $("#free-food-yes").is(":checked")
 	};
 
+	$( "#popup-received").remove();
 	createPopup("Storing <br/> New Tour");
 	$.ajax({
 		url : "http://cmu-tourout.appspot.com/storeTour",
@@ -30,7 +31,6 @@ $("#provide-button").click(function() {
 		data : data,
 		dataType : 'json',
 		success : function() {
-			console.log("fsdfdsfds");
 			killPopup();
 		}
 		
