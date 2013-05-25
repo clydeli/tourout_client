@@ -7,6 +7,13 @@ var displayTourInfo = function(tour) {
 	initMap(tour['propertyMap']['coordinates'].split(',')[0], tour['propertyMap']['coordinates'].split(',')[1]);
 
 	$('#checkinBtn').click(function(){
+		tourout.checkin.setTourInfo(
+			{
+				visitorName : "visitor",
+				hostName : "host",
+				tourId : ""
+			}
+		);
 		tourout.checkin.sendVisitorInfo();
 	});
 }

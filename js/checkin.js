@@ -44,14 +44,14 @@ tourout.checkin = (function() {
 			createPopup("Please check in <br> using NFC...");
 		},
 	
-		checkInTour = function(){
+		checkInTour = function(tourId){
 			$.ajax({
-				url: "http://cmu-tourout.appspot.com/getTours",
+				url: "http://cmu-tourout.appspot.com/finishTour?key="+tourId,
 				type: 'GET',
 				dataType: 'json',
 				success: function (jsondata) {
+					killPopup();
 					console.log(jsondata);
-					// do something
 				}
 			});
 		},
@@ -65,7 +65,7 @@ tourout.checkin = (function() {
 				console.log("received");
 				console.log(message.records[0].text);
 				var msg = JSON.parse(message.records[0].text);
-				killPopup();
+				checkInTour(msg.tourId);
 			}	
 		};
 		
@@ -74,6 +74,9 @@ tourout.checkin = (function() {
 		init : function(){
 			tourout.nfc.init(nfcCallbacks);
 			//sendVisitorInfo();
+		},
+		setTourInfo : function(tInfo){
+			tourInfo = tInfo;
 		},
 		sendVisitorInfo : sendVisitorInfo
 	};
