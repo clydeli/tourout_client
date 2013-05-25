@@ -45,7 +45,11 @@ dd {
 	margin: 0 2em 1em 0;
 }
 
+<<<<<<< HEAD
 #tourinfo-map {
 	height: 300px;
 	width: 250px;
 }
+=======
+#findTour { height: 500px }
+>>>>>>> d95ef896073ffb936ff6599861f287110ab0c60e
