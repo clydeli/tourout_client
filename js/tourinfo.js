@@ -5,6 +5,10 @@ var displayTourInfo = function(tour) {
 	tour['propertyMap']['haveFreeLunch'] == true ? $('#tour-info-free-food').text('Yes') : $('#tour-info-free-food').text('No'); 
 	$('#tour-info-company').text(tour['propertyMap']['companyName']);
 	initMap(tour['propertyMap']['coordinates'].split(',')[0], tour['propertyMap']['coordinates'].split(',')[1]);
+
+	$('#checkinBtn').click(function(){
+		tourout.checkin.sendVisitorInfo();
+	});
 }
 
 var initMap = function(latitude, longitude) {
