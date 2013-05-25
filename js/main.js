@@ -25,6 +25,14 @@ $(document).on("pageinit", "#demo-page", function() {
 		$("#" + $(this).data('page')).show();
 		$("#left-panel").panel("close");
 		updateTitle($(this).data('page'));
+		switch($(this).data('page')){
+			case "nfcCheckIn":
+				tourout.nfc.init();
+				break;
+			case "tourList":
+				tourout.tourist.init();
+				break;
+		}
 	});
 	
 	function bindTourDetail() {
