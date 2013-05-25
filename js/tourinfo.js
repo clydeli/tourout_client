@@ -5,6 +5,19 @@ var displayTourInfo = function(tour) {
 	tour['propertyMap']['haveFreeLunch'] == true ? $('#tour-info-free-food').text('Yes') : $('#tour-info-free-food').text('No'); 
 	$('#tour-info-company').text(tour['propertyMap']['companyName']);
 	initMap(tour['propertyMap']['coordinates'].split(',')[0], tour['propertyMap']['coordinates'].split(',')[1]);
+
+	$('#checkinBtn').click(function(){
+		tourout.checkin.setTourInfo(
+			{
+				visitorName : "visitor",
+				hostName : tour['propertyMap']['provider'],
+				tourId : tour['key']['id']
+			}
+		);
+		tourout.checkin.sendVisitorInfo();
+	});
+	
+	//$('#tour-info-id').val(tour['key']['id']);
 }
 
 var initMap = function(latitude, longitude) {

@@ -4,6 +4,7 @@ function updateTitle(title) {
 
 $(document).on("pageinit", "#demo-page", function() {
 	tourout.tourlist.init();
+	tourout.checkin.init();
 
 	$(".innerPages").hide();
 	$("#tourList").show();
@@ -14,6 +15,12 @@ $(document).on("pageinit", "#demo-page", function() {
 				$("#left-panel").panel("open");
 			}
 		}
+	});
+	
+	$('#provideTour').on('click', 'input', function(){
+		console.log('good');
+		//$('#provideTour input').focus();
+		//prompt();
 	});
 
 	$(document).on("click", "#left-panel li a", function(e) {
@@ -33,6 +40,5 @@ $(document).on("pageinit", "#demo-page", function() {
 				break;
 		}
 	});
-	
 });
 
