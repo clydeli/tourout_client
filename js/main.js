@@ -27,31 +27,27 @@ $(document).on("pageinit", "#demo-page", function() {
 			case "tourList":
 				tourout.tourlist.init();
 				break;
+			case "findTour":
+				tourout.findtour.init();
+				break;
 		}
 	});
 	
 	function bindTourDetail() {
 		$("#tourList a").on("click", function() {
-			$("#right-panel").panel("open");
+			var tourId = $(this).data("tour-id");
+			$.ajax({
+				url: "http://cmu-tourout.appspot.com/getTourDetail?id=" + tourId,
+				type: 'GET',
+				dataType: 'json',
+				success: function(jsondata) {
+					displayTourInfo(jsondata);
+					$("#right-panel").panel("open");		
+				}
+			});
+			
 		});
 	}
-	
-	// Init map
-	// Initialize map
-    navigator.geolocation.getCurrentPosition(
-		function(position) {
-			var mapOptions = {
-				center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
-		        zoom: 8,
-		        mapTypeId: google.maps.MapTypeId.ROADMAP
-		    };
-		    var map = new google.maps.Map(document.getElementById('findTour'), mapOptions);
-			console.log('Latitude: ' + position.coords.latitude + 'Longitude: ' + position.coords.longitude);
-		},
-		function(error) {
-			console.log('Failed to get current position');
-		}
-	);
 	
 	bindTourDetail();
 });
