@@ -3,6 +3,7 @@ function updateTitle(title) {
 }
 
 $(document).on("pageinit", "#demo-page", function() {
+	tourout.tourlist.init();
 
 	$(".innerPages").hide();
 	$("#tourList").show();
@@ -32,24 +33,5 @@ $(document).on("pageinit", "#demo-page", function() {
 				break;
 		}
 	});
-	
-	function bindTourDetail() {
-		$("#tourList a").on("click", function() {
-			var tourId = $(this).data("tour-id");
-			$.ajax({
-				url: "http://cmu-tourout.appspot.com/getTourDetail?id=" + tourId,
-				type: 'GET',
-				dataType: 'json',
-				success: function(jsondata) {
-					displayTourInfo(jsondata);
-					$("#right-panel").panel("open");		
-				}
-			});
-			
-		});
-	}
-	
-	bindTourDetail();
-	
 });
 
