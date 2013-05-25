@@ -28,10 +28,17 @@ tourout.tourlist = (function() {
 					var pendingTours = []; 
 					 
 					  for(var i=0; i<jsondata.length; ++i){
+						  //var hasFood = jsondata[i].propertyMap.haveFreeLunch;
+						  var tourStr = '<li><a href="#" data-tour-id="' + jsondata[i].key.id + '">' + jsondata[i].propertyMap.companyName;
+						  //if(jsondata[i].propertyMap.haveFreeLunch){ tourStr += ' (Free Food)' }
+						  if(jsondata[i].propertyMap.haveFreeLunch){ tourStr += '<img class="ui-li-icon" src="images/food.png" style="position: absolute; top: 3px; left: 5px; max-width:2.2em; max-height:2.2em;"> ' }
+						  else{ tourStr += '<img class="ui-li-icon" src="images/blank.png" style="position: absolute; top: 3px; left: 5px; max-width:2.2em; max-height:2.2em;"> '; }
+						  tourStr +=  '</a> </li>';
+						  
 						  if(jsondata[i].propertyMap.isFinished) {
-							  finishedTours.push('<li><a href="#" data-tour-id="' + jsondata[i].key.id + '">' + jsondata[i].propertyMap.companyName + '</a></li>');
+							  finishedTours.push(tourStr);
 						  } else {
-							  pendingTours.push('<li><a href="#" data-tour-id="' + jsondata[i].key.id + '">' + jsondata[i].propertyMap.companyName + '</a></li>');
+							  pendingTours.push(tourStr);
 						  }
 					  }
 					  
