@@ -1,5 +1,21 @@
 var tourout = tourout || {};
 
+function bindTourDetail() {
+	$("#tourList a").on("click", function() {
+		var tourId = $(this).data("tour-id");
+		$.ajax({
+			url: "http://cmu-tourout.appspot.com/getTourDetail?id=" + tourId,
+			type: 'GET',
+			dataType: 'json',
+			success: function(jsondata) {
+				displayTourInfo(jsondata);
+				$("#right-panel").panel("open");		
+			}
+		});
+		
+	});
+}
+
 tourout.tourlist = (function() {
 	var
 		init = function(){
@@ -17,6 +33,7 @@ tourout.tourlist = (function() {
 					  
 					  $('#tourListUl').html(tourList);
 					  $('#tourListUl').listview('refresh');
+					  bindTourDetail();
 				}
 			});
 		};
